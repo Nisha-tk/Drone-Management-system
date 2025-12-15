@@ -1,54 +1,55 @@
-🚀 Drone Management System (Backend)
+# 🚀 Drone Management System (Backend)
 
 A production-ready backend system for managing drones, missions, survey areas, and flight paths with role-based access control.
 
 Built using FastAPI, SQLAlchemy, PostgreSQL, and JWT authentication, with a clean layered architecture (Repository → Service → Router).
 
-🧱 Tech Stack
+# 🧱 Tech Stack
 
-Python 3.11+
+- Python 3.11+
 
-FastAPI
+- FastAPI
 
-SQLAlchemy (ORM)
+- SQLAlchemy (ORM)
 
-PostgreSQL
+- PostgreSQL
 
-Alembic (database migrations)
+- Alembic (database migrations)
 
-JWT Authentication
+- JWT Authentication
 
-uv (dependency & environment manager)
+- uv (dependency & environment manager)
 
-Railway (deployment)
+- Railway (deployment)
 
-📂 Project Structure
-.
-├── alembic/
-├── src/
-│   ├── core/            # config, security, jwt
-│   ├── db/              # db session
-│   ├── models/          # SQLAlchemy models
-│   ├── repository/      # DB access layer
-│   ├── services/        # business logic
-│   ├── routers/         # API routes
-│   ├── schemas/         # Pydantic schemas
-│   ├── utils/           # dependencies, helpers
-│   ├── constants/       # error & message constants
-│   ├── enums/           # enums (roles, status, patterns)
-│   └── exceptions/      # custom exceptions & handlers
-├── main.py
-├── alembic.ini
-├── pyproject.toml
-├── uv.lock
-├── .env.example
-└── README.md
+# 📂 Project Structure
+- 
+    ├── alembic/
+    ├── src/
+    │   ├── core/            # config, security, jwt
+    │   ├── db/              # db session
+    │   ├── models/          # SQLAlchemy models
+    │   ├── repository/      # DB access layer
+    │   ├── services/        # business logic
+    │   ├── routers/         # API routes
+    │   ├── schemas/         # Pydantic schemas
+    │   ├── utils/           # dependencies, helpers
+    │   ├── constants/       # error & message constants
+    │   ├── enums/           # enums (roles, status, patterns)
+    │   └── exceptions/      # custom exceptions & handlers
+    ├── main.py
+    ├── alembic.ini
+    ├── pyproject.toml
+    ├── uv.lock
+    ├── .env.example
+    └── README.md
 
-🔐 Authentication & Roles
+
+# 🔐 Authentication & Roles
 
 JWT based authentication
 
-Roles:
+- Roles:
 
 ADMIN
 
@@ -56,9 +57,9 @@ OPERATOR
 
 VIEWER
 
-Access Control
+- Access Control
 
-Admin
+Admin 
 
 Create drones
 
@@ -66,17 +67,20 @@ Create survey areas
 
 Create operators
 
+
+
 Operator
 
 Create missions
 
 Create flight paths
 
+
 Viewer
 
 Read-only access
 
-⚙️ Environment Variables
+# ⚙️ Environment Variables
 Local Development
 
 Create a .env file (do not commit it):
@@ -94,19 +98,19 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 A template is provided in .env.example.
 
-📦 Installation (using uv)
-1️⃣ Clone the repository
+# 📦 Installation (using uv)
+- 1️⃣ Clone the repository
 git clone https://github.com/your-username/drone-management-system.git
 cd drone-management-system
 
-2️⃣ Create virtual environment & install deps
+- 2️⃣ Create virtual environment & install deps
 uv sync
 
-🗄️ Database Setup
+- 🗄️ Database Setup
 Run migrations
 uv run alembic upgrade head
 
-▶️ Run the Application
+- ▶️ Run the Application
 uv run uvicorn main:app --reload
 
 
@@ -119,7 +123,7 @@ Swagger UI:
 
 http://localhost:8000/docs
 
-☁️ Deployment (Railway)
+# ☁️ Deployment (Railway)
 Steps:
 
 Push code to GitHub (without .env)
@@ -141,7 +145,7 @@ uv run uvicorn main:app --host 0.0.0.0 --port $PORT
 
 Railway automatically injects environment variables at runtime.
 
-🎥 Explanation Video (Assignment)
+# 🎥 Explanation Video (Assignment) 
 
 In the video, explain:
 
@@ -157,7 +161,7 @@ How missions, drones, and flight paths are linked
 
 Deployment approach on Railway
 
-✅ Features Implemented
+# ✅ Features Implemented
 
 User authentication & authorization
 
@@ -177,26 +181,23 @@ Global error handling
 
 Production-ready configuration
 
-🧠 Design Decisions
+# 🧠 Design Decisions
 
-uv for faster dependency management
+- uv for faster dependency management
 
-Repository pattern for clean DB abstraction
+- Repository pattern for clean DB abstraction
 
-Service layer for business logic
+- Service layer for business logic
 
-No .env in Git for security
+- No .env in Git for security
 
-Enums & constants for consistency
+- Enums & constants for consistency
 
-JWT stateless auth for scalability
+- JWT stateless auth for scalability
 
-📌 Notes
+# 📌 Notes
 
 Frontend can be added later (Streamlit / React)
 
 System is designed for easy extension (reports, analytics)
 
-👤 Author
-
-Nisha
