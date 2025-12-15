@@ -15,16 +15,29 @@ class AuthService:
 
 
     @staticmethod
-    def sign_up(db:Session, user:dict):
-        user = UserRepository.get_by_email(db, user["email"])
-        if user:
-            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=ErrorMessages.EMAIL_ALREADY_EXISTS)
+    def sign_up(db: Session, user_data: dict):
         
-        password = PasswordManager.hash_password(user["password"])
-        user.update({"password": password})
-        user_obj = Users(**user)
-        created_user = UserRepository.create(db,user_obj)
-        return created_user
+            existing_user = UserRepository.get_by_email(db, user_data["email"])
+            if existing_user:
+                raise HTTPException(
+                    status_code=status.HTTP_403_FORBIDDEN,
+                    detail=ErrorMessages.EMAIL_ALREADY_EXISTS
+                )
+
+          
+            hashed_password = PasswordManager.hash_password(
+                user_data["password"]
+            )
+
+         
+            user_data["password"] = hashed_password
+
+           
+            user_obj = Users(**user_data)
+            created_user = UserRepository.create(db, user_obj)
+
+            return created_user
+
         
 
     @staticmethod
