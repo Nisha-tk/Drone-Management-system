@@ -7,8 +7,8 @@ class Settings(BaseSettings):
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
     POSTGRES_DB: str
-    POSTGRES_HOST: str
-    POSTGRES_PORT: int = 5432
+    PGHOST: str
+    PGPORT: int = 5432
 
     JWT_SECRET: str
     JWT_ALGORITHM: str = "HS256"
@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     def DATABASE_URL(self) -> str:
         return (
             f"postgresql+psycopg2://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
-            f"@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+            f"@{self.PGHOST}:{self.PGPORT}/{self.POSTGRES_DB}"
         )
 
 
