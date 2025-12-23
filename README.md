@@ -144,7 +144,8 @@ uv run uvicorn main:app --host 0.0.0.0 --port $PORT
 
 
 Railway automatically injects environment variables at runtime.
-https://drone-management-system-production-56b6.up.railway.app/
+https://drone-management-system-production-56b6.up.railway.app/docs
+
 
 
 # 🎥 Explanation Video (Assignment) 
